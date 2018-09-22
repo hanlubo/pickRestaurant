@@ -1,0 +1,44 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <!-- <view>Hello {{name}}</view>
+  <button bindtap="changeName">Click me to change name</button> -->
+  
+  <view class="section">
+    <!-- <view class="section__title">Click to pick a restaurant</view> -->
+    <button bindtap="pickRestaurant">Click to pick a restaurant</button>
+    <view class="flex-wrp" style="flex-direction:row;">
+      <view class="flex-item"><text># of Restaurants: \n</text></view>
+      <view class="flex-item">{{rest_length}}</view>
+    </view>
+    <view class="flex-wrp" style="flex-direction:row;">
+      <view class="flex-item"><text>Restaurant: \n</text></view>
+      <view class="flex-item">{{restaurant}}</view>
+    </view>
+    <button bindtap="removeRestaurant">Remove this restaurant</button>
+    <!-- <button bindtap="addRestaurant">Add one restaurant</button> -->
+    <!-- <input input_rest type="text" /> -->
+    <text>Add a restaurant:</text>
+    <input  bindconfirm="addRestaurant" placeholder="Restaurant"/>
+  </view>
+
+  <!-- <map longitude="120" latitude="30"></map> -->
+  
+  <!-- <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view> -->
+
+<!-- <switch wx:for="{{objectArray}}" wx:key="unique" style="display: block;"> {{item.id}} </switch>
+<button bindtap="switch"> Switch </button>
+<button bindtap="addToFront"> Add to the front </button>
+
+<switch wx:for="{{numberArray}}" wx:key="*this" style="display: block;"> {{item}} </switch>
+<button bindtap="addNumberToFront"> Add to the front </button> -->
+
+</view>
